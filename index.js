@@ -1,38 +1,33 @@
-//__proto__
-// const catsProto = {
-//   toString() {
-//     return "a cat named" + this.name;
-//   },
-//   sleep() {
-//     return this.name + "cat sleeping";
-//   },
-// };
+// Запитувати у користувача число до тих пір, доки воно не буде більше 15 і менше 35 і кратне 6 (18,24,30 підходить)
+// В користувача є 3 спроби
 
-// const cat1 = {
-//   name: "Barsik",
-//   __proto__: catsProto
-// };
+// зробити двома способами через while і for
 
-// const cat2 = {
-//   name: "Pushok",
-// };
-// cat2.__proto__ = catsProto;
+// * це повинна бути функція(можливо і не одна)
+/**
+ *
+ * @param {number} userInput
+ * @returns {boolean}
+ */
+function askUser(userInput) {
+  if (userInput >= 15 && userInput <= 30 && userInput % 6 === 0) {
+    return true;
+  }
+}
+//while
+let i = 0;
+while (i < 3) {
+  const userInput = prompt("Enter value");
+  if (askUser(userInput) === true) {
+    break;
+  }
+  i++;
+}
 
-// console.log(cat1);
-// console.log(cat2);
-
-//2 Вариант
-// function CatsPrototype(){
-//     this.toString = function(){
-//         return "a cat named" + this.name;
-//     }
-//     this.sleep = function(){
-//        return this.name + "cat sleeping";
-// }
-// }
-
-// function Cat(name){
-//     this.name = name;
-// }
-
-// Cat.prototype = new CatsPrototype();
+//for
+for (let i = 0; i < 3; i++) {
+  const userInput = prompt("Enter value");
+  if (askUser(userInput) === true) {
+    break;
+  }
+}
